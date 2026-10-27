@@ -10,11 +10,12 @@ Arena temporal + protagonista + Forajido Hueco, para evaluar movimiento y, despu
 - `project.godot` con escena inicial `res://scenes/prototypes/duel_arena.tscn`.
 - C02: `scripts/components/input_snapshot.gd`, `aim_quantizer.gd`, `input_controller.gd`; pruebas `tests/run_c02_tests.gd`, documentación `docs/c02_input.md`. Verificar rutas actuales al abrir repo.
 - Godot 4.7.2; 70 pruebas reportadas como superadas de C02.
+- C03: `MovementComponent` calcula física desde un snapshot; `Player` consume una captura por tick y `CharacterBody2D` resuelve suelo y paredes. Pruebas en `tests/run_c03_tests.gd`.
 
 ## Contratos arquitectónicos de referencia (no afirmar implementados)
 - `PlayerController`/`InputController`: captura intenciones y snapshots. **No** movimiento ni combate.
 - `SimulationCoordinator`/`ActionCoordinator`: orden fijo de acciones, colisiones, daño y concentración **cuando se autoricen**.
-- `MovementComponent`: física horizontal y salto (C03, autorización condicionada).
+- `MovementComponent`: física horizontal y salto (C03 implementada, pendiente de aceptación MAIN).
 - `DodgeComponent`: fases, ventanas de invulnerabilidad y evasión (tarea posterior bloqueada).
 - `TargetingComponent`: ocho direcciones y fijación (posterior).
 - `RevolverComponent`, `CombatController`, `AttackResolver`: munición, compromiso e hitscan (posterior).

@@ -23,3 +23,8 @@
 
 ## Política de nuevos acuerdos
 Añadir entradas solo tras confirmación expresa de MAIN o como decisión técnica interna claramente etiquetada, sin cambiar contratos jugables.
+
+## Decisiones internas C03 — 27/10/2026
+- **EXPERIMENTAL:** `pixels_per_unit = 24`, igual al ancho del collider provisional. Es configurable y no constituye contrato artístico.
+- **EXPERIMENTAL:** liberación anticipada multiplica la velocidad ascendente por `0.50` para producir salto variable.
+- **IMPLEMENTADA:** `Player` rechaza ids de snapshot ya consumidos; `MovementComponent` no lee `Input`.

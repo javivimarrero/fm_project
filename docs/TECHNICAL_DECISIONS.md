@@ -14,6 +14,7 @@
 - DIRECTRIZ 006: separar daño confirmado previamente de contactos actuales; sin evasión retroactiva.
 - DIRECTRIZ 010: Godot 4.7.2 de referencia y autorización de Git y C02 finalizada.
 - DIRECTRIZ 014: C03 exclusivamente después de commit inicial C01+C02; C04–C12 bloqueadas.
+- DIRECTRIZ 016: C03 completada; C04 autorizada después de consolidar C03; C05–C12 bloqueadas.
 
 ## Convenciones de implementación y estado
 - **APROBADO:** Godot 4.7.2; uso de InputSnapshot C02; no alterar snapshots de ticks anteriores.
@@ -28,3 +29,9 @@ Añadir entradas solo tras confirmación expresa de MAIN o como decisión técni
 - **EXPERIMENTAL:** `pixels_per_unit = 24`, igual al ancho del collider provisional. Es configurable y no constituye contrato artístico.
 - **EXPERIMENTAL:** liberación anticipada multiplica la velocidad ascendente por `0.50` para producir salto variable.
 - **IMPLEMENTADA:** `Player` rechaza ids de snapshot ya consumidos; `MovementComponent` no lee `Input`.
+
+## Decisiones internas C04 — 27/10/2026
+- **IMPLEMENTADA:** prioridad de solicitudes esquiva > disparo > salto > recarga; daño pendiente bloquea antes de resolverlas.
+- **IMPLEMENTADA:** permisos y bloqueos llegan mediante contexto explícito; una interfaz no disponible se rechaza sin ejecutar mecánica.
+- **IMPLEMENTADA:** ticks duplicados no pueden comprometer otra acción y las solicitudes rechazadas no se encolan.
+- **IMPLEMENTADA:** cancelación de recarga es solo una salida lógica para futuras esquiva/disparo; C04 no ejecuta esas mecánicas.

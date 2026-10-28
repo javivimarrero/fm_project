@@ -36,7 +36,8 @@ func step_velocity(
 		current_velocity: Vector2,
 		snapshot: InputSnapshot,
 		delta: float,
-		is_grounded: bool
+		is_grounded: bool,
+		accept_jump_press: bool = true
 ) -> Vector2:
 	assert(delta > 0.0)
 	var next_velocity := current_velocity
@@ -49,7 +50,7 @@ func step_velocity(
 	else:
 		coyote_remaining = maxf(coyote_remaining - delta, 0.0)
 
-	if snapshot.jump_pressed:
+	if snapshot.jump_pressed and accept_jump_press:
 		jump_buffer_remaining = jump_buffer_time
 	else:
 		jump_buffer_remaining = maxf(jump_buffer_remaining - delta, 0.0)

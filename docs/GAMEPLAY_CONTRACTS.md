@@ -26,8 +26,8 @@ Arena, jugador, salto, apuntado 8 sectores, fijación asistida, revólver de sei
 - Alcance experimental 10 u; sin penetración, solo primer obstáculo/objetivo; apuntado 8 sectores puede corregirse por asistencia válida.
 - Tras compromiso, daño/esquiva no revierten disparo ni restauran munición; esquiva durante recuperación ofensiva espera y no queda en cola.
 
-## Orden de acciones (posterior)
-Daño válido previamente confirmado > esquiva > disparo > salto > recarga. Movimiento y fijación continuos con restricciones del estado. Una nueva acción comprometida por tick. Solo el salto tiene buffer 0.10 s; las otras acciones en espera no quedan almacenadas. Disparo y esquiva cancelan recarga según contrato; esquiva no autoriza disparo durante ella. Confirmar matriz íntegra del reporte 005 antes de implementar C04.
+## Orden de acciones (coordinación C04; ejecutores posteriores)
+Daño válido previamente confirmado > esquiva > disparo > salto > recarga. Movimiento y fijación continuos con restricciones del estado. Una nueva acción comprometida por tick. Solo el salto tiene buffer 0.10 s; las otras acciones en espera no quedan almacenadas. Disparo y esquiva cancelan recarga según contrato; esquiva no autoriza disparo durante ella. Confirmar la matriz íntegra del reporte 005 antes de implementar los ejecutores futuros.
 
 ## Esquiva (posterior)
 Duración 0.24 s; desplazamiento 2 u; invulnerabilidad 0.05–0.17 s después del inicio; recuperación 0.12 s; no atraviesa paredes. Suspende concentración pasiva. Bonifica +10 una sola vez por instancia de ataque elegible con contacto real que habría causado daño, dentro de invulnerabilidad, fijación vigente o recuperable. Ataques persistentes pueden dañar al terminar i-frames y nunca bonifican repetidamente.
@@ -36,4 +36,4 @@ Duración 0.24 s; desplazamiento 2 u; invulnerabilidad 0.05–0.17 s después de
 Rango [0,100]; modelo A +25 pts/s; modelo B +10 pts/s normal, +45 pts/s bajo amenaza; +10 por esquiva válida; daño recibido −25; disparo normal −20; crítico consume todo. Recarga, esquiva y pérdida temporal de fijación no generan acumulación pasiva. Actualizar una vez por tick; la pérdida definitiva de fijación fuerza resultado final cero.
 
 ## Estado de aprobación
-Aprobados como contratos candidatos para planificación técnica, no como balance final; solo C03 ha sido autorizada condicionalmente. Parámetros experimentales deberán quedar configurables.
+Aprobados como contratos candidatos para planificación técnica, no como balance final. C04 coordina solicitudes sin implementar esquiva, disparo o recarga. Parámetros experimentales deberán quedar configurables.

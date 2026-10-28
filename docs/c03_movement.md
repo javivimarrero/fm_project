@@ -24,6 +24,10 @@ La liberación anticipada del salto multiplica la velocidad ascendente por `0.50
 
 `MovementComponent` no consulta `Input`: recibe únicamente el snapshot inmutable, el delta, la velocidad previa y el estado de suelo.
 
+## Representación provisional
+
+DIRECTRIZ MAIN — 017 verificó que la escena del jugador estaba instanciada, dentro del viewport y correctamente conectada a C02, pero carecía de representación visible. `player.tscn` incluye ahora un `Polygon2D` rectangular cian de 24×48 px, alineado con el collider. Es una figura temporal, no un sprite ni una decisión artística definitiva.
+
 ## Alcance excluido
 
 No se implementan esquiva, disparo, recarga, enemigos, concentración, animaciones definitivas, UI ni tareas C04–C12.

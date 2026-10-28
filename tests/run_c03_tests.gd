@@ -104,6 +104,10 @@ func _test_arena_collisions_and_snapshot_consumption() -> void:
 	await physics_frame
 	var player: CharacterBody2D = arena.get_node("Player")
 	var controller: InputController = arena.get_node("InputController")
+	var provisional_visual: Polygon2D = player.get_node("ProvisionalVisual")
+	_expect_true(provisional_visual.visible, "provisional player representation is visible")
+	_expect_eq(provisional_visual.polygon.size(), 4, "provisional player representation is a rectangle")
+	_expect_true(provisional_visual.color.a > 0.0, "provisional player representation is opaque")
 	_expect_true(player.is_on_floor(), "player collides with arena floor")
 
 	var count_before: int = player.consumed_snapshot_count
